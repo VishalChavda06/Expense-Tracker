@@ -6,7 +6,7 @@ function TransactionList({ transactions, dispatch }) {
         {transactions.map((t) => (
           <li key={t.id} className={t.amount < 0 ? 'minus' : 'plus'}>
             {t.text} <span>₹ {t.amount}</span>
-            <button onClick={() => dispatch({ type: "DELETE_TRANSACTION", payload: t.id })} className="delete-btn">x</button>
+            <button onClick={() => { dispatch({ type: "DELETE_TRANSACTION", payload: t.id }); console.log('TransactionList delete called', t.id); }} className="delete-btn">x</button>
           </li>
         ))}
       </ul>

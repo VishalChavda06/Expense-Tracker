@@ -3,6 +3,8 @@ function IncomeExpense({ transactions }) {
   const income = amounts.filter(a => a > 0).reduce((a, b) => a + b, 0);
   const expense = amounts.filter(a => a < 0).reduce((a, b) => a + b, 0);
 
+  console.log('IncomeExpense calculated', { income, expense });
+
   return (
     <div className="inc-exp-container">
       <div>

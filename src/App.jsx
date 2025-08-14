@@ -18,13 +18,16 @@ const reducer = (state, action) => {
 function App() {
   const [transactions, dispatch] = useReducer(reducer, []);
 
+  // Log after each function call
+  console.log('App render:', { transactions });
+
   return (
     <div className="container">
       <h2>💸 Expense Tracker</h2>
-      <Balance transactions={transactions} />
-      <IncomeExpense transactions={transactions} />
-      <TransactionList transactions={transactions} dispatch={dispatch} />
-      <AddTransaction dispatch={dispatch} />
+      {(() => { const el = <Balance transactions={transactions} />; console.log('Balance called', { transactions }); return el; })()}
+      {(() => { const el = <IncomeExpense transactions={transactions} />; console.log('IncomeExpense called', { transactions }); return el; })()}
+      {(() => { const el = <TransactionList transactions={transactions} dispatch={dispatch} />; console.log('TransactionList called', { transactions }); return el; })()}
+      {(() => { const el = <AddTransaction dispatch={dispatch} />; console.log('AddTransaction called'); return el; })()}
     </div>
   );
 }

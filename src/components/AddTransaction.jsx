@@ -18,6 +18,7 @@ function AddTransaction({ dispatch }) {
     };
 
     dispatch({ type: "ADD_TRANSACTION", payload: newTransaction });
+    console.log('AddTransaction handleSubmit called', newTransaction);
 
     setText('');
     setAmount('');
